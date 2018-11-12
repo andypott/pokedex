@@ -10,7 +10,13 @@ class AllPokemon {
 
     public function index() {
         try {
-            $pokemon = $this->app['pokeAPI']->allPokemonList();
+            $pokeAPI = $this->app['pokeAPI'];
+            $pokemon = $pokeAPI->allPokemonList();
+            $pokemon = array_map(function($pmon) use ($pokeAPI) {
+                $pmon->url = str_replace($pokeAPI->getBaseURL(), '', $pmon->url);
+                return $pmon;
+            }, $pokemon);
+
             view('allPokemon', [
                 'title' => 'Pokédex',
                 'pokemon' => $pokemon,

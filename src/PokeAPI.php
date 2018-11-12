@@ -20,4 +20,8 @@ class PokeAPI {
 
         return $list->results;
     }
+
+    public function getBaseURL() {
+        return $this->baseURL;
+    }
 }
