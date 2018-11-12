@@ -2,7 +2,14 @@
   "name": "ukfast/pokedex",
   "description": "The UKFast PHP developer test",
   "type": "project",
-  "require": {},
+  "require": {
+      "mustache/mustache": "^2.12.0"
+  },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "autoload": {
+      "classmap": ["./src"]
+  },
+  "scripts": {
+  }
 }

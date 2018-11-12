@@ -1,10 +1,24 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Pokédex</title>
-    </head>
-    <body>
+<?php
 
-    </body>
-</html>
+require __DIR__ . '/../vendor/autoload.php';
+
+function view($view, $vars) {
+    $mustache = new Mustache_Engine(['loader' => new Mustache_Loader_FilesystemLoader(__DIR__ . '/../src/views')]);
+    echo $mustache->render($view, $vars);
+}
+
+$router = new Router;
+
+/*******************************
+ * Define Routes
+ ******************************/
+
+$router->add('/^$/', 'AllPokemon', 'index');
+$router->add('/^pokemon$/', 'AllPokemon', 'index');
+
+/*******************************
+ * Route Request
+ ******************************/
+$path = trim($_SERVER['REQUEST_URI'], '/');
+
+$router->route($path);
