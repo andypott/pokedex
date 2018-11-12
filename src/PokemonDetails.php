@@ -17,6 +17,8 @@ class PokemonDetails {
         $this->addAbilities($details);
     }
 
+    // names with multiple parts are in the form
+    // basculin-red-striped, so replace - with space and capitalise for display
     private function addName($details) {
         $this->name = ucwords(implode(' ', explode('-', $details->name)));
     }
