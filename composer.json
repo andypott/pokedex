@@ -11,5 +11,9 @@
       "classmap": ["./src"]
   },
   "scripts": {
+      "test": "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
   }
 }
