@@ -19,6 +19,7 @@ $router = new Router;
 
 $router->add('/^$/', 'AllPokemon', 'index');
 $router->add('/^pokemon$/', 'AllPokemon', 'index');
+$router->add('/^pokemon\/(\d+)$/', 'SinglePokemon', 'index');
 
 /*******************************
  * Route Request
