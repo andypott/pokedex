@@ -13,7 +13,7 @@ class AllPokemon {
             $pokeAPI = $this->app['pokeAPI'];
             $pokemon = $pokeAPI->allPokemonList();
             $pokemon = array_map(function($pmon) use ($pokeAPI) {
-                $pmon->url = str_replace($pokeAPI->getBaseURL(), '', $pmon->url);
+                $pmon->url = '/' . str_replace($pokeAPI->getBaseURL(), '', $pmon->url);
                 return $pmon;
             }, $pokemon);
 
