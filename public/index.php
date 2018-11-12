@@ -24,6 +24,5 @@ $router->add('/^pokemon\/(\d+)$/', 'SinglePokemon', 'index');
 /*******************************
  * Route Request
  ******************************/
-$path = trim($_SERVER['REQUEST_URI'], '/');
 
-$router->route($path, $app);
+$router->route($_SERVER['REQUEST_URI'], $app);

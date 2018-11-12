@@ -11,6 +11,7 @@ class Router {
     }
 
     public function route($path, $app) {
+        $path = trim(parse_url($path, PHP_URL_PATH), '/');
         foreach ($this->routes as $pathRegex=>[$controllerClass, $method]) {
             $matches = [];
             if (preg_match($pathRegex, $path, $matches)) {
