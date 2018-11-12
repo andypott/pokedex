@@ -9,7 +9,8 @@ class SinglePokemon {
 
     public function index($id) {
         try {
-            $details = $this->app['pokeAPI']->singlePokemonDetails($id);
+            $rawDetails = $this->app['pokeAPI']->singlePokemonDetails($id);
+            $details = new PokemonDetails($rawDetails);
 
             view('singlePokemon', [
                 'title' => 'Pokemon',

@@ -4,16 +4,16 @@
 <div>
     <header>
         <h2>{{name}}</h2>
-        <p>{{species.name}}
+        <p>{{species}}
     </header>
     <div>
-        <img src="{{sprites.front_default}}">
+        <img src="{{img}}">
     </div>
     <div>
         <h3>Abilities:</h3>
         <ul>
             {{#abilities}}
-            <li>{{ability.name}}</li>
+            <li>{{.}}</li>
             {{/abilities}}
         </ul>
     </div>
