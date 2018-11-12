@@ -1,5 +1,29 @@
 {{> header }}
 
-<p>{{id}}</p>
+{{#details}}
+<div>
+    <header>
+        <h2>{{name}}</h2>
+        <p>{{species.name}}
+    </header>
+    <div>
+        <img src="{{sprites.front_default}}">
+    </div>
+    <div>
+        <h3>Abilities:</h3>
+        <ul>
+            {{#abilities}}
+            <li>{{ability.name}}</li>
+            {{/abilities}}
+        </ul>
+    </div>
+    <div>
+        <h3>Height:</h3>
+        <p>{{height}}</p>
+        <h3>Weight:</h3>
+        <p>{{weight}}</p>
+    </div>
+</div>
+{{/details}}
 
 {{> footer }}

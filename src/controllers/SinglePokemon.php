@@ -8,9 +8,17 @@ class SinglePokemon {
     }
 
     public function index($id) {
-        view('singlePokemon', [
-            'title' => 'Pokemon',
-            'id' => $id,
-        ]);
+        try {
+            $details = $this->app['pokeAPI']->singlePokemonDetails($id);
+
+            view('singlePokemon', [
+                'title' => 'Pokemon',
+                'details' => $details,
+            ]);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+
     }
 }
