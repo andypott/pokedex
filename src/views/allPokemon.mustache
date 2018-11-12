@@ -1,5 +1,10 @@
 {{> header }}
 
+<form action="." method="get">
+    <input type="text" name="q" required>
+    <button type="submit">Search</button>
+</form>
+
 <ul>
     {{#pokemon}}
     <li><a href="{{url}}">{{name}}</a></li>
