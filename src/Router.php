@@ -10,11 +10,11 @@ class Router {
         $this->routes[$pathRegex] = [$controller, $method];
     }
 
-    public function route($path) {
+    public function route($path, $app) {
         foreach ($this->routes as $pathRegex=>[$controllerClass, $method]) {
             $matches = [];
             if (preg_match($pathRegex, $path, $matches)) {
-                $controller = new $controllerClass;
+                $controller = new $controllerClass($app);
                 $controller->$method(...array_slice($matches, 1));
                 return; // No need to check anything else
             }
