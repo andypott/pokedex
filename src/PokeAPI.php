@@ -13,7 +13,7 @@ class PokeAPI {
 
         $rawList = file_get_contents($url);
         if ($rawList === false) {
-            throw new Excpetion("Unable to fetch pokemon list");
+            throw new Exception("Unable to fetch pokemon list");
         }
 
         $list = json_decode($rawList);
