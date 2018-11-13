@@ -10,7 +10,14 @@ class AllPokemon {
 
     public function index() {
         try {
-            $rawList = $this->app['pokeAPI']->fetch($this->app['pokeAPIURL'] . 'pokemon');
+            // Fetch empty list to find out how many pokemon are in the full list
+            // Then fetch full list with that count
+            // Not necessarily required at the time of writing as pagination is broken and the full
+            // list is always returned, but this should keep things working when it's fixed
+            $rawList = $this->app['pokeAPI']->fetch($this->app['pokeAPIURL'] . 'pokemon?limit=0');
+            $count = $rawList->count;
+            $rawList = $this->app['pokeAPI']->fetch($this->app['pokeAPIURL'] . 'pokemon?limit=' . $count);
+            
             $pokemonList = (new PokemonList($rawList->results, $this->app['pokeAPIURL']))->asArray();
 
             $q = '';

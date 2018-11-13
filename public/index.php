@@ -4,6 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = [
     'pokeAPIURL' => 'https://pokeapi.co/api/v2/',
+    //'pokeAPIURL' => 'http://pokeapi.salestock.net/api/v2/', // API with working pagination
     'pokeAPI' => new PokeAPI,
 ];
 
