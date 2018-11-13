@@ -3,6 +3,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: #1f1f1f;
+}
+
+ul {
+  list-style: none;
 }
 
 
@@ -35,16 +40,40 @@
   padding: 1rem;
 }
 
-.pokemon-list {
-  list-style: none;
-}
-
 .pokemon-list a, .pokemon-list a:visited {
   text-decoration: none;
-  color: #1f1f1f;
   font-size: 1.3rem;
 }
 
 .pokemon-list a:hover {
   font-size: 2rem;
+}
+
+
+.pokemon-card {
+  width: 30rem;
+  margin: 2rem auto;
+  border: solid 2px #5f5f5f;
+}
+
+.pokemon-card .body {
+  padding: 2rem;
+}
+
+.pokemon-card > header {
+  padding: 2rem;
+  background-color: #bfbfbf;
+}
+
+.pokemon-card > header > p {
+  color: #3f3f3f;
+}
+
+.pokemon-card > .body > .img-row {
+  text-align: center;
+}
+
+.pokemon-card .details-container {
+  display: flex;
+  justify-content: space-around;
 }

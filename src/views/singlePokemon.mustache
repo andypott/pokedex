@@ -1,27 +1,31 @@
 {{> header }}
 
 {{#details}}
-<div>
+<div class="pokemon-card">
     <header>
         <h2>{{name}}</h2>
         <p>{{species}}
     </header>
-    <div>
-        <img src="{{img}}">
-    </div>
-    <div>
-        <h3>Abilities:</h3>
-        <ul>
-            {{#abilities}}
-            <li>{{.}}</li>
-            {{/abilities}}
-        </ul>
-    </div>
-    <div>
-        <h3>Height:</h3>
-        <p>{{height}}</p>
-        <h3>Weight:</h3>
-        <p>{{weight}}</p>
+    <div class="body">
+        <div class="img-row">
+            <img src="{{img}}">
+        </div>
+        <div class="details-container">
+            <div>
+                <h3>Abilities:</h3>
+                <ul>
+                    {{#abilities}}
+                    <li>{{.}}</li>
+                    {{/abilities}}
+                </ul>
+            </div>
+            <div>
+                <h3>Height:</h3>
+                <p>{{height}}</p>
+                <h3>Weight:</h3>
+                <p>{{weight}}</p>
+            </div>
+        </div>
     </div>
 </div>
 {{/details}}
