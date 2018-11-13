@@ -38,7 +38,7 @@ class PokemonListTest extends TestCase {
 
         $list = (new PokemonList(json_decode($this->rawList), $this->baseURL))->asArray();
 
-        $this->assertEquals('/pokemon/1/', $list[0]->url);
+        $this->assertEquals('/pokemon/1/', $list[1]->url);
         $this->assertEquals('/pokemon/4/', $list[3]->url);
     }
 
@@ -46,7 +46,20 @@ class PokemonListTest extends TestCase {
 
         $list = (new PokemonList(json_decode($this->rawList), $this->baseURL))->asArray();
 
-        $this->assertEquals('Bulbasaur', $list[0]->name);
-        $this->assertEquals('Basculin Red Striped', $list[6]->name);
+        $this->assertEquals('Basculin Red Striped', $list[0]->name);
+        $this->assertEquals('Bulbasaur', $list[1]->name);
+    }
+
+    public function testListIsInAlphabeticalOrder() {
+
+        $list = (new PokemonList(json_decode($this->rawList), $this->baseURL))->asArray();
+
+        $this->assertEquals('Basculin Red Striped', $list[0]->name);
+        $this->assertEquals('Bulbasaur', $list[1]->name);
+        $this->assertEquals('Charizard', $list[2]->name);
+        $this->assertEquals('Charmander', $list[3]->name);
+        $this->assertEquals('Charmeleon', $list[4]->name);
+        $this->assertEquals('Ivysaur', $list[5]->name);
+        $this->assertEquals('Venusaur', $list[6]->name);
     }
 }

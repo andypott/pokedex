@@ -18,6 +18,10 @@ class PokemonList {
             $pmon->name = ucwords(implode(' ', explode('-', $pmon->name)));
             return $pmon;
         }, $list);
+
+        usort($this->list, function($a, $b) {
+            return ($a->name < $b->name) ? -1 : 1;
+        });
     }
 
     public function asArray() {
