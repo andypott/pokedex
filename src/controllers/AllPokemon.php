@@ -27,7 +27,10 @@ class AllPokemon {
                 'query' => $q,
             ]);
         } catch (Exception $e) {
-            echo $e->getMessage();
+            view('notFound', [
+                'title' => 'Pokédex',
+                'message' => $e->getMessage(),
+            ]);
         }
     }
 }
