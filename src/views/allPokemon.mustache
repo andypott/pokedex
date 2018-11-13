@@ -1,15 +1,15 @@
 {{> header }}
 
-<form action="." method="get">
-    <input type="text" name="q" required>
-    <button type="submit">Search</button>
-</form>
+<div class="container">
+    <form action="." method="get">
+        <input type="text" name="q" value="{{query}}">
+    </form>
 
-<ul>
-    {{#pokemon}}
-    <li><a href="{{url}}">{{name}}</a></li>
-    {{/pokemon}}
-</ul>
-
+    <ul class="pokemon-list">
+        {{#pokemon}}
+        <li><a href="{{url}}">{{name}}</a></li>
+        {{/pokemon}}
+    </ul>
+</div>
 
 {{> footer }}

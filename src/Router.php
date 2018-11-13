@@ -12,6 +12,12 @@ class Router {
 
     public function route($path, $app) {
         $path = trim(parse_url($path, PHP_URL_PATH), '/');
+
+        // If path begins with static, return false to serve static files
+        if (strpos($path, 'static/') === 0) {
+            return false;
+        }
+
         foreach ($this->routes as $pathRegex=>[$controllerClass, $method]) {
             $matches = [];
             if (preg_match($pathRegex, $path, $matches)) {

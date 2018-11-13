@@ -1,0 +1,50 @@
+* {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.page-header {
+  width: 100hv;
+  background-color: #2f2f2f;
+}
+
+.page_header > h1, .page-header > h1 > a, .page-header > h1 > a:visited {
+  color: white;
+  text-decoration: none;
+  padding: 2rem;
+  display:inline-block;
+}
+
+.container {
+  width: 30rem;
+  margin: 2rem auto;
+}
+
+.container > form {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.container > form > input {
+  width: 100%;
+  height: 3rem;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.pokemon-list {
+  list-style: none;
+}
+
+.pokemon-list a, .pokemon-list a:visited {
+  text-decoration: none;
+  color: #1f1f1f;
+  font-size: 1.3rem;
+}
+
+.pokemon-list a:hover {
+  font-size: 2rem;
+}
