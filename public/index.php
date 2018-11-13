@@ -3,7 +3,8 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 $app = [
-    'pokeAPI' => new PokeAPI('https://pokeapi.co/api/v2/'),
+    'pokeAPIURL' => 'https://pokeapi.co/api/v2/',
+    'pokeAPI' => new PokeAPI,
 ];
 
 // Use a 1 hour cache to speed up requests, comment out to always use latest data

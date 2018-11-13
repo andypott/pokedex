@@ -1,6 +1,6 @@
 <?php
 
-class Cache {
+class Cache implements Fetcher {
 
     private $api;
     private $timeout;
@@ -11,7 +11,7 @@ class Cache {
         $this->timeout = $timeout;
     }
 
-    private function fetch($url, $method, $args) {
+    public function fetch($url) {
         $hash = sha1($url);
 
         $filepath = __DIR__ . '/../cache/' . $hash;
@@ -24,23 +24,8 @@ class Cache {
             }
         }
 
-        $newContents = call_user_func_array(array($this->api, $method), $args);
+        $newContents = $this->api->fetch($url);
         file_put_contents($filepath, json_encode($newContents));
         return $newContents;
-    }
-
-
-    public function allPokemonList() {
-        $url = $this->api->getBaseURL() . 'pokemon';
-        return $this->fetch($url, 'allPokemonList', []);
-    }
-
-    public function getBaseURL() {
-        return $this->api->getBaseURL();
-    }
-
-    public function singlePokemonDetails($id) {
-        $url = $this->api->getBaseURL() . 'pokemon/' . $id;
-        return $this->fetch($url, 'singlePokemonDetails', [$id]);
     }
 }

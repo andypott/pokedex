@@ -10,9 +10,8 @@ class AllPokemon {
 
     public function index() {
         try {
-            $pokeAPI = $this->app['pokeAPI'];
-            $rawList = $pokeAPI->allPokemonList();
-            $pokemonList = (new PokemonList($rawList, $pokeAPI->getBaseURL()))->asArray();
+            $rawList = $this->app['pokeAPI']->fetch($this->app['pokeAPIURL'] . 'pokemon');
+            $pokemonList = (new PokemonList($rawList->results, $this->app['pokeAPIURL']))->asArray();
 
             $q = '';
             // Search if query param is set and it's not empty
@@ -21,7 +20,6 @@ class AllPokemon {
                 $pokemonList = $searcher->search($_GET['q']);
                 $q = $_GET['q'];
             }
-
 
             view('allPokemon', [
                 'title' => 'Pokédex',
